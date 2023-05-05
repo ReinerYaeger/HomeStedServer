@@ -1,0 +1,60 @@
+{% load static %} {%if request.user.is_authenticated%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/apartment/apartment.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/apartment/form.css' %}"
+    />
+  </head>
+
+  <body>
+    {% include 'homested/navbar.html' %}
+
+    <div class="apartment_navbar container">
+      <nav >
+        <a href="#data">View Analytics</a>
+        <a href="{% url 'apartment' choice='add_tenant' %}">View Guest Info</a>
+        <a href="{% url 'apartment' choice='bills' %}">View Bills</a>
+        <a href="{% url 'apartment' choice='camera_feed' %}">Camera Feed</a>
+      </nav>
+      
+    </div>
+
+
+    <a  name="data"></a>
+    <div  class="container">
+      
+      <div class="box">
+        <div class="box_inner_1">
+          <h2>Number Of tenants and Guests: {{data.number_of_tenants}}</h2>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box_inner_1">
+          <h2>Number Of tenants and Guests: {{data.number_of_tenants}}</h2>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box_inner_1">
+          <h2>Number Of tenants and Guests: {{data.number_of_tenants}}</h2>
+        </div>
+      </div>
+    </div>
+
+      <a  name="insert_new_tenant"></a>
+
+    </div>
+  </body>
+</html>
+
+{%endif%}

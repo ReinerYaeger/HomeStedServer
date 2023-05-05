@@ -1,0 +1,85 @@
+{% load static %}
+
+{% include 'homested/apartment/apartment.html'%}
+<div class="container">
+      <div class="box">
+        <div class="box_inner_1">
+          <h2>Insert new tenant</h2>
+
+          <form method="post" action="{% url 'apartment' %}">
+            {% csrf_token %}
+            <label for="tenant-name">Tenant Name</label>
+            <input
+              required
+              type="text"
+              id="tenant-name"
+              name="in_tenant_name"
+            />
+
+            <label for="tenant-phone_number">Tenant Phone Number</label>
+            <input
+              maxlength="10"
+              type="text"
+              id="tenant-phone_number"
+              name="in_tenant_phone_number"
+            />
+
+            <label for="arrival-date">Arrival Date</label>
+            <input
+              type="date"
+              id="arrival-date"
+              name="in_tenant_arrival_date"
+            />
+
+            <label for="departure-date">Departure Date</label>
+            <input
+              type="date"
+              id="departure-date"
+              name="in_tenant_departure_date"
+            />
+
+            <label for="long-term">Long Term</label>
+            <input type="checkbox" id="long-term" name="in_tenant_long_term" />
+
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="in_tenant_notes"></textarea>
+
+            <label for="room-location">Room Location</label>
+            <input type="text" id="room-location" name="in_room_location" />
+
+            <label for="rent-due-date">Rent Due Date</label>
+            <input type="date" id="rent-due-date" name="in_rent_due_date" />
+
+            <label for="rent-amount">Rent Amount</label>
+            <input
+              required
+              type="text"
+              id="rent-amount"
+              name="in_rent_amount"
+            />
+
+            <label for="amount-paid">Amount Paid</label>
+            <input type="text" id="amount-paid" name="in_amount_paid" />
+
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="in_payment_method">
+              <option value="Cash">Cash</option>
+              <option value="Western union">Western Union</option>
+              <option value="Bank transfer">Bank Transfer</option>
+            </select>
+
+            <label for="payment-month-paidfor">Payment Month Paid For</label>
+            <input
+              type="date"
+              id="payment-month-paidfor"
+              name="in_payment_month_paidfor"
+            />
+
+            <label for="payment-notes">Payment Notes</label>
+            <textarea id="payment-notes" name="in_payment_notes"></textarea>
+
+            <button name="insert" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+      </div>

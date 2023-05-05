@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box,
+box_inner_1 {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+  height: 100%;
+  margin: 1%;
+  margin-right: 2%;
+}
+
+/* .flex_centre{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+} */
+
+.icons {
+  background-size: 100px;
+}
+
+.apartment_navbar {
+  /* position: -webkit-sticky; */
+  top: 0;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  z-index: 999;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  font: normal 18px "Open Sans", sans-serif;
+  font-size: larger;
+
+  color: #333;
+}
+
+/* Add a line beneath the links when they are hovered */
+nav a:hover::after {
+  content: "";
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #000;
+}
