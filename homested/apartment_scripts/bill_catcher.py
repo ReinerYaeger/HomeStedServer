@@ -47,13 +47,13 @@ def query_nwc(customer_code=None, premises_code=None):
         # iterate through the p elements and extract the data you want
         for p_element in p_elements:
             label_text = p_element.find_element(By.XPATH, './preceding-sibling::p').text
-            if label_text in ['Balance Overdue', 'Bill Balance', 'Bill Print Date']:
+            if label_text in ['Balance Overdue', 'Bill Balance', 'Due Date']:
                 value_text = p_element.text.replace(',', '')
                 if label_text == 'Balance Overdue':
                     values['overdue'] = value_text
                 elif label_text == 'Bill Balance':
                     values['balance'] = value_text
-                elif label_text == 'Bill Print Date':
+                elif label_text == 'Due Date':
                     values['date'] = value_text
 
         # print the values
