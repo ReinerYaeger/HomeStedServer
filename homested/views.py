@@ -1,3 +1,4 @@
+from threading import Thread
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -33,8 +34,6 @@ def index(requests):
 @login_required(redirect_field_name=None, login_url='login/')
 def apartment(requests, choice=None):
 
-    number_of_tenants = get_number_of_tenants()
-
     if requests.method == 'POST':
         if 'insert' in requests.POST:
             form_data = {
@@ -54,14 +53,13 @@ def apartment(requests, choice=None):
             }
 
     data = {
-        'number_of_tenants': number_of_tenants,
-        'tenant_name_list': get_all_tenants()
+       # 'number_of_tenants': get_number_of_tenants(),
+       # 'tenant_name_list': get_all_tenants()
     }
     if choice == 'add_tenant':
         return render(requests, 'homested/apartment/insert_tenant.html', {'data': data})
     
     if choice == 'bills':
-        
         data['bills'] = query_nwc(os.getenv('CUSTOMER_NUMBER'), os.getenv('PREMISES_NUMBER'))
         
         return render(requests, 'homested/apartment/bills.html', {'data': data})

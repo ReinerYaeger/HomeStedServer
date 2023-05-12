@@ -1,5 +1,5 @@
 {% load static %}
-
+{%if request.user.is_authenticated%}
 <!DOCTYPE html>
 <head>
   <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}">
@@ -15,11 +15,13 @@
           <a href="{% url 'files' %}">Files</a>
           <a href="{% url 'proxy' %}">Proxy</a>
           <a href="{% url 'phone_home' %}">Phone Home</a>
+
           <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
   </div>
 </div>
+{% endif %}
 
 
 
