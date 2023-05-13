@@ -53,8 +53,8 @@ def apartment(requests, choice=None):
             }
 
     data = {
-       # 'number_of_tenants': get_number_of_tenants(),
-       # 'tenant_name_list': get_all_tenants()
+       'number_of_tenants': get_number_of_tenants(),
+       'tenant_name_list': get_all_tenants()
     }
     if choice == 'add_tenant':
         return render(requests, 'homested/apartment/insert_tenant.html', {'data': data})
