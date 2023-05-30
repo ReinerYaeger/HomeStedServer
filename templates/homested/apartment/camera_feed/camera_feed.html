@@ -1,0 +1,29 @@
+{% load static %}
+{%if request.user.is_authenticated%}
+
+{% include 'homested/apartment/apartment.html'%}
+
+<style>
+    iframe {
+    height: 1000px;
+    width: 100%;
+    margin 15%;
+    resize: both;
+  overflow: auto;
+}
+
+</style>
+<div  class="container">
+    <div class="box">
+        <div class="box_inner_1">
+          <h2>Camera Feed</h2>
+            <iframe resizable src="http://192.168.0.100#live">
+
+            </iframe>
+
+
+        </div>
+      </div>
+</div>
+
+{%endif%}

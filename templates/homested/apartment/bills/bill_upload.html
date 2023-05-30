@@ -1,0 +1,36 @@
+{% load static %}
+{%if request.user.is_authenticated%}
+<div  class="container">
+    <div class="box">
+        <div class="box_inner_1">
+          <h2>Upload Bill Invoice</h2>
+
+            <form>
+                {% csrf_token %}
+                <label for="bill-entity">Select Billing Company</label>
+            <select id="bill-entity" id="bill-entity">
+                <option value="">  </option>
+              {% for entity in data.bill_entity_list %}
+                <option value="{{entity}}">{{entity}}</option>
+                {%endfor%}
+            </select>
+            </form>
+        </div>
+      </div>
+
+    <div class="box">
+        <div class="box_inner_1">
+          <h2>Upload Bill Payment Receipt </h2>
+
+            <form>
+                {% csrf_token %}
+                <label for="bill-image">Upload Receipt</label>
+                <input type="image">
+            </select>
+            </form>
+
+
+        </div>
+      </div>
+</div>
+{%endif%}

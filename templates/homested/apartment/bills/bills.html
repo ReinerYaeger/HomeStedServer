@@ -1,0 +1,84 @@
+{% load static %}
+{%if request.user.is_authenticated%}
+{% include 'homested/apartment/apartment.html'%}
+<style>
+    <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .boxun {
+
+      padding: 20px;
+
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
+
+<div  class="container">
+
+      <div class="boxun box">
+        <div class="center" class="box_inner_1">
+
+            <a href="path_to_your_bill_sheet_generator_script" target="_blank" class="button">
+      Generate Bill Sheet
+    </a>
+        </div>
+      </div>
+</div>
+<div  class="container">
+
+      <div class="box">
+        <div class="box_inner_1">
+          <h2>Water</h2>
+            <h3>Balance: {{data.bills.water_bill.balance}}</h3>
+            <h3>Due Date: {{data.bills.water_bill.date}}</h3>
+        </div>
+      </div>
+
+    <div class="box">
+        <div class="box_inner_1">
+          <h2>Light : </h2>
+            <h3>Balance: {{data.bills.balance}}</h3>
+            <h3>Due Date: {{data.bills.date}}</h3>
+        </div>
+      </div>
+
+    <div class="box">
+        <div class="box_inner_1">
+          <h2>Internet : </h2>
+            <h3>Balance: {{data.bills.balance}}</h3>
+            <h3>Due Date: {{data.bills.date}}</h3>
+        </div>
+      </div>
+</div>
+
+{% include 'homested/apartment/bills/bill_upload.html' %}
+{% include 'homested/apartment/bills/generate_billing_table.html' %}
+
+{%endif%}

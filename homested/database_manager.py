@@ -27,6 +27,18 @@ def get_all_tenants():
             return 0
 
 
+def get_all_bill_entity():
+    with connection.cursor() as cursor:
+        cursor.execute("Select * FROM view_bill_entity")
+        connection.commit()
+        bill_entity_list = cursor.fetchall()
+
+        if bill_entity_list is not None:
+            return bill_entity_list
+        else:
+            return 0
+
+
 def insert_new_tenant():
 
     return 0
